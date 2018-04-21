@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            {% load static %}
+            <link rel="stylesheet" href="{% static 'semi_restful_users/style.css' %}">
+        </head>
+        <body>
+            <div class="container">
+                <h2>Users</h2>
+                <table class="table">    
+                    <tr>
+                        <th>Id</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Created At</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr>    
+                        <td></td>
+                        {% for i in context %}
+                            <td><a href="/semi_restful_users/users"> {{ i.first_name }} {{ i.last_name }}</a></td>
+                            <td>{{ i.email }}</td>
+                            <td>{{ i.created_at }}</td>
+                            <td><div class="action_links"><a href="/semi_restful_users/users1">Show</a><a href="/semi_restful_users/users2">Edit </a><a href="/semi_restful_users/users3">Delete</a></div></td>     
+                        {% endfor %}
+                    </tr>
+                </table>    
+                <div class="link">
+                    <a href="/new">Add a new user</a>       
+                </div>
+                
+        </body>
+    </html>
+
