@@ -9,7 +9,7 @@
             <div class="container">
                 <h1>Login and Registration</h1>
                 <div class="reg_area">    
-                    <h2>Register here!</h2>
+                    <h2>Please Register here!</h2>
                     <form action='/add_user' method='post'>
                         {% csrf_token %}
                         First name: <input type='text' value="{{ request.session.FirstName }}" name='first_name'>
