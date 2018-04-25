@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login_and_registration/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <a href="/logout">logout</a>
+        <h1>Welcome, {{ request.session.alias }}!</h1>
+        <br></br>
+        <div class = "quotes_area">
+            <h2>Quotable Quotes:</h2>            
+            {% for i in others_favorites %}
+                <div class="quote">
+                    <p>{{ i.message }}</p> 
+                    <p>Posted by: <a href="/user_info/{{ i.created_by.id }}">{{ i.created_by.alias }}</a></p>
+                    <button><a href="/liked_quote/{{ i.id }}">Add to My List</a></button>
+                    <br></br>
+                </div>   
+            {% endfor %}  
+        </div>
+        <div class = "my_quotes_area">
+            <h2>Your favorites:</h2>
+                {% for i in user_quote_list %}
+                    <div class="quote">
+                        <p>{{ i.message }}</p> 
+                        <p>Posted by <a href="/user_info/{{ i.created_by.id }}">{{ i.created_by.alias }}</a></p>
+                        <button><a href="/remove_quote/{{ i.id }}">Remove From My List</a></button>
+                        <br></br>
+                    </div>   
+                {% endfor %}    
+            <div class="create_new_quote">
+                <h2>Contribute a quote:</h2>
+                    <form action='/add_quote' method='post'>
+                        {% csrf_token %}
+                        Quote by: <input type='text' name='speaker'><br>
+                        Message: <textarea type='text' name='new_quote'></textarea><br>
+                        <input type='submit' class="button" value='Submit'>
+                    </form> 
+                    {% if messages %}
+                        {% for message in messages %}
+                            <ul style="color: red">{{message}}</ul>
+                        {% endfor %}
+                    {% endif %}
+            </div>
+        </div>        
+    </div>        
+</body>
+</html>
+ 

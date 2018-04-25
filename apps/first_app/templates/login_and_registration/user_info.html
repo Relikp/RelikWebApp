@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login_and_registration/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Posts by {{ user_to_be_presented.alias }}</h2>
+        <p>Count: {{ count }} </p>
+        <br></br>
+            {% for i in user_quotes_to_show %}
+                <p style="color:red">{{i.speaker}}:</p>
+                <p>{{i.message}}</p>
+                <br></br>
+            {% endfor %}
+        <a href='/quotes'>Dashboard</a>
+        <a href='/logout'>Logout</a>
+    </div>                               
+</body>
+</html>

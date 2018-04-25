@@ -7,17 +7,16 @@
 }
   
 .container{
-    width: 725px;
+    width: 780px;
     height: auto;
     background: white;
     margin-top: 30px;
     margin-left: 150px;
-    padding: 0px;
-      
+    padding: 0px;     
 }
   
 .container h1{
-    margin-top: 50px;
+    margin-top: 20px;
     text-align: center;
 }
   
@@ -32,13 +31,12 @@
     height:auto;
     background: white;
     display: inline-block;
-      
+    vertical-align: top;     
 }
   
 #login_area{
       margin-top:30px;
-      vertical-align: top;
-  
+      vertical-align: top;  
 }
   
 input{
@@ -56,5 +54,39 @@ input{
   
 .error_messages p{
     color: red;
-    
 }
+
+a{
+    color: blue;
+}
+
+#AddItem{
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.link{
+    margin-left: 330px;
+    display: inline-block;
+}
+
+.quotes_area{
+    width: 300px;
+    height: auto;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.my_quotes_area{
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 30px;
+}
+
+.create_new_quote{
+    width: 200px;
+    margin-left: 50px;
+    margin-top: 45px
+}
+

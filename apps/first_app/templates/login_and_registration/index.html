@@ -1,44 +1,46 @@
 <!DOCTYPE html>
-    <html>
-        <head>
-            <meta charset="utf-8">
-            {% load static %}
-            <link rel="stylesheet" href="{% static 'login_and_registration/style.css' %}">
-        </head>
-        <body>
-            <div class="container">
-                <h1>Login and Registration</h1>
-                <div class="reg_area">    
-                    <h2>Please Register here!</h2>
-                    <form action='/add_user' method='post'>
-                        {% csrf_token %}
-                        First name: <input type='text' value="{{ request.session.FirstName }}" name='first_name'>
-                        Last name: <input type='text' value="{{ request.session.LastName }}" name='last_name'>
-                        Email:<input type='text' value="{{ request.session.Email }}" name='email'>
-                        Password: <input type='password' name='password'>
-                        Confirm password: <input type='password' name='conf_password'>
-                        <input type='submit' class="button" value='Register!'>
-                    </form>        
-                <div class="error_messages">
-                    {% if messages %}
-                        {% for message in messages %}
-                            <p>{{message}}</p>
-                        {% endfor %}
-                    {% endif %}              
-                </div>   
-                </div>
-                <div class="reg_area" id="login_area">    
-                    <h2>Login here!</h2>
-                    <div class="addUser">
-                        <form action='/login' method='post'>
-                            {% csrf_token %}
-                            Email: <input type='text' name='email'>
-                            Password: <input type='password' name='password'>
-                            <input type='submit' class="button" value='Login!'>
-                        </form>                 
-                    </div>
-                </div>   
-            </div>        
-        </body>
-    </html>
+<html>
+<head>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login_and_registration/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Login and Registration</h1>
+        <div class="reg_area">    
+            <h2>Please Register here!</h2>
+            <form action='/add_user' method='post'>
+                {% csrf_token %}
+                Name: <input type='text' value="{{ request.session.name }}" name='name'>
+                alias: <input type='text' value="{{ request.session.alias }}" name='alias'>
+                email: <input type='text' value="{{ request.session.email }}" name='email'>
+                <p>*Password should be at least 8 characters</p>
+                Password: <input type='password' name='password'>
+                Confirm password: <input type='password' name='conf_password'>
+                Date of birth: <input type='date' name='birth_date'>
+                <input type='submit' class="button" value='Register'>
+            </form>                
+        </div>
+        <div class="reg_area">    
+            <h2>Login here!</h2>
+            <div class="addUser">
+                <form action='/login' method='post'>
+                    {% csrf_token %}
+                    email: <input type='text' name='email'>
+                    Password: <input type='password' name='password'>
+                    <input type='submit' class="button" value='Login!'>
+                </form>                 
+            </div>
+        </div>   
+        <div class="error_messages">
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="color: red">{{message}}</p>
+                {% endfor %}
+            {% endif %}              
+        </div>   
+    </div>        
+</body>
+</html>
     

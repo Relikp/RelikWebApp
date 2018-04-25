@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'semi_restful_users/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>{{ info.name }}</h2>
+        <p>Users who added this product/item under their wish list:</p>
+        <ul>
+            {% for i in users %}
+                <li>{{i.name}}</li>
+            {% endfor %}
+        </ul>
+        <a href='/dashboard'>Home</a>
+        <a href='/logout'>Logout</a>
+    </div>                               
+</body>
+</html>
